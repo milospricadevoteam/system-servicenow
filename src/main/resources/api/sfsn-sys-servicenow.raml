@@ -1,0 +1,68 @@
+#%RAML 1.0
+title: sfsn-sys-servicenow
+
+types:
+    CreateIncidentType: !include /types/createIncidentType.raml
+    UpdateIncidentType: !include /types/updateIncidentType.raml
+
+/create-incident:
+  post:
+    displayName: Create incident
+    body:
+        application/json:
+            type: CreateIncidentType
+            examples:
+              input: !include /examples/incidentCreateExample.json
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              message: Incident created successfully! 
+      400:
+        body:
+          application/json:
+            example:
+              message: Some parameter is missing!
+      401:
+        body:
+          application/json:
+            example:
+              message: You are not authorized!
+      415:
+        body:
+          application/json:
+            example:
+              message: Unsupported media type!
+
+/update-incident:
+  /{id}:
+    put:
+      displayName: Update incident
+      body: 
+        application/json:
+          type: UpdateIncidentType
+          examples:
+            input: !include /examples/incidentUpdateExample.raml         
+      responses:
+        201:
+          body:
+            application/json:
+              example:
+                message: Incident updated successfully!
+        400:
+          body:
+            application/json:
+              example:
+                message: Some parameter is missing!
+        401:
+          body:
+            application/json:
+              example:
+                message: You are not authorized!
+        415:
+          body:
+            application/json:
+              example:
+                message: Unsupported media type!
+

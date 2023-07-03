@@ -1,0 +1,16 @@
+{
+  "insert": {
+    "id": 1,
+    "number": "INC1-Test4",
+    "createdForUser": "User1",
+    "createdDate": "2023-06-06T14:04:40.090Z",
+    "description": "Incident created for user User1",
+    "attachment": "?",
+    "priority": "Medium",
+    "state": "?",
+    "shortDescription": "User1s incident",
+    "type": "?",
+    "additionalComments": "This is additional comment",
+    "channel": "?"
+  }
+}

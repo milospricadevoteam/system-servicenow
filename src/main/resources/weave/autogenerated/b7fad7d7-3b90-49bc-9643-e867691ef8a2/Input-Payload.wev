@@ -1,0 +1,18 @@
+%dw 2.0
+
+type auto_b7fad7d7_3b90_49bc_9643_e867691ef8a2_Input_Payload = {
+  createdDate: String, 
+  additionalComments: String, 
+  attachment: String, 
+  channel: String, 
+  createdForUser: String, 
+  description: String, 
+  id: Number, 
+  nubmer: String, 
+  state: String, 
+  shortDescription: String, 
+  priority: String, 
+  "type": String, 
+  _?: Any
+}
+
