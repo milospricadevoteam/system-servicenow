@@ -37,7 +37,7 @@ payload.body.insertResponse.number
 		<logger level="INFO" doc:name="Logger" doc:id="c2b44f84-0a78-4821-b2d0-0ac9689cdb36" message="#[payload]"/>
 	</flow>
 	<flow name="UpdateIncident" doc:id="b7537aa2-b371-463b-bbe4-76a1a1bc1634" >
-		<http:listener doc:name="Listener" doc:id="ced7d903-58df-4db8-afee-bab4606cd847" config-ref="HTTP_Listener_config" path="/update-incident"/>
+		<http:listener doc:name="Listener" doc:id="ced7d903-58df-4db8-afee-bab4606cd847" config-ref="HTTP_Listener_config" path="/update-incident" allowedMethods="PUT"/>
 		<logger level="INFO" doc:name="Logger" doc:id="23fd77a8-f4a9-40ef-a9b9-a8b8a94798b0" message="#[payload]"/>
 		<ee:transform doc:name="Transform Message" doc:id="fa163451-7a19-4208-bc27-c5b73d8ed454" >
 			<ee:message >
@@ -47,7 +47,8 @@ output application/xml
 payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<servicenow:invoke doc:name="Update incident" doc:id="b14cca8d-e779-4813-8287-25c2d9f99f76" service="incident" operation="update" config-ref="ServiceNow_Config" allowEmptyValue="true"/>
+		<servicenow:invoke doc:name="Update incident" doc:id="b14cca8d-e779-4813-8287-25c2d9f99f76" service="incident" operation="update" config-ref="ServiceNow_Config" allowEmptyValue="true">
+		</servicenow:invoke>
 		<ee:transform doc:name="Transform Message" doc:id="592a3767-ead0-4d21-889e-35db9bc1a364" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
